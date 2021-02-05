@@ -1,4 +1,4 @@
-# https://www.youtube.com/watch?v=-jM0BKWUKKk&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs&index=6
+# https://www.youtube.com/watch?v=WmiKgFBIqkE&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs&index=7
 <Tarefas>:
     BoxLayout:
         id:box
@@ -7,9 +7,20 @@
         height:self.minimum_height
 
 
+<Tarefa>:
+    # definir tamanho padrao
+    size_hint_y: None # anular a divisão na vertical
+    height: 200 # especificar a altura em pixel
+    Label:
+        id:label #
+        font_size:30 # definindo o tamanho da fonte 
+    Button:
+        text: "x" #texto no botão
+        size_hint_x: None # desligar a divisão na horizontal
+        width: 60  # especificar a largura do botal em pixel
 
-# trecho abaixo para utilizar com main01.py
-# <Tarefas>:
-#     orientation: "vertical"
-#     Label:
-#         id: label
+        #as duas linhas abaixo repsentam a mesma coisa
+        # on_release: app.root.ids.box.remove_widget(self.parent) 
+        on_release: app.root.ids.box.remove_widget(root)
+
+        

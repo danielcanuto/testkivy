@@ -1,14 +1,46 @@
 <Gerenciador>:
-    Screen:
-        Button:
-            text: "Visualizar Tarefas"
-            on_release: root.current = 'tarefas'
-
+    Menu:
+        name: "menu"
     Tarefas:   
         name: "tarefas"
+
+<Menu>:
+    BoxLayout:
+        orientation:"vertical"
+        padding: 150 # margem 
+        spacing: 10  # espaço entre os botões
+        Image:
+            source:'img/logo/logo.png'
+            size_hint_y: None
+            height: 200
+            # size_hint_x = None
+        Button:
+            text: "Tarefas"
+            on_release: app.root.current = "tarefas"
+        Button:
+            text: " Assistente"
+        Button:
+            text: "Duvidas"
+        Button:
+            text: "Sair"
+            on_release: app.stop()
 <Tarefas>:
     BoxLayout:
         orientation:"vertical"
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title: "   Tarefas"
+                    on_release: app.root.current = "menu"
+                ActionButton:
+                    text: "Menu"
+                ActionSeparator:
+
+                ActionButton:
+                    text: "Sair"
+                    on_release: app.stop()
+
+
         ScrollView:
             BoxLayout:
                 id:box

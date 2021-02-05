@@ -1,23 +1,10 @@
 # https://www.youtube.com/watch?v=WmiKgFBIqkE&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs&index=7
 <Tarefas>:
-    orientation: "vertical"
-    ScrollView:
-        BoxLayout:
-            id:box
-            orientation:"vertical"
-            size_hint_y:None
-            height:self.minimum_height
     BoxLayout:
-        size_hint_y: None
-        height: 60 #definir altura
-        TextInput:
-            id:texto
-        Button:
-            text: "+"
-            size_hint_x: None
-            width: 60
-            
-            on_release: root.addWidget()
+        id:box
+        orientation:"vertical"
+        size_hint_y:None
+        height:self.minimum_height
 
 
 <Tarefa>:
@@ -28,7 +15,7 @@
         id:label #
         font_size:30 # definindo o tamanho da fonte 
     Button:
-        text: "Remove" #texto no botão
+        text: "x" #texto no botão
         size_hint_x: None # desligar a divisão na horizontal
         width: 60  # especificar a largura do botal em pixel
 

@@ -1,23 +1,31 @@
-# https://www.youtube.com/watch?v=WmiKgFBIqkE&list=PLsMpSZTgkF5AV1FmALMgW8W-TvrfR3nrs&index=7
-<Tarefas>:
-    orientation: "vertical"
-    ScrollView:
-        BoxLayout:
-            id:box
-            orientation:"vertical"
-            size_hint_y:None
-            height:self.minimum_height
-    BoxLayout:
-        size_hint_y: None
-        height: 60 #definir altura
-        TextInput:
-            id:texto
+<Gerenciador>:
+    Screen:
         Button:
-            text: "+"
-            size_hint_x: None
-            width: 60
-            
-            on_release: root.addWidget()
+            text: "Visualizar Tarefas"
+            on_release: root.current = 'tarefas'
+
+    Tarefas:   
+        name: "tarefas"
+<Tarefas>:
+    BoxLayout:
+        orientation:"vertical"
+        ScrollView:
+            BoxLayout:
+                id:box
+                orientation:"vertical"
+                size_hint_y:None
+                height:self.minimum_height
+        BoxLayout:
+            size_hint_y: None
+            height: 60 #definir altura
+            TextInput:
+                id:texto
+            Button:
+                text: "+"
+                size_hint_x: None
+                width: 60
+                
+                on_release: root.addWidget()
 
 
 <Tarefa>:
@@ -34,6 +42,6 @@
 
         #as duas linhas abaixo repsentam a mesma coisa
         # on_release: app.root.ids.box.remove_widget(self.parent) 
-        on_release: app.root.ids.box.remove_widget(root)
+        on_release: app.root.get_screen("tarefas").ids.box.remove_widget(root)
 
         

@@ -3,14 +3,11 @@
 
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-class Gerenciador(ScreenManager):
-    pass
 
-class Tarefas(Screen):
-    def __init__(self, tarefas=[], **kwargs):
+class Tarefas(BoxLayout):
+    def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
             self.ids.box.add_widget(Tarefa(text=tarefa))
@@ -29,7 +26,7 @@ class Tarefa(BoxLayout):
 
 class MyTarefa(App):
     def build(self):
-        return Gerenciador()
+        return Tarefas(['Compras Supermercado', "Pegar filha escola", "Estudar especialização", "Comprar carro", "Investir na bolsa"])
 
 MyTarefa().run()
 

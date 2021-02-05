@@ -12,12 +12,12 @@ class Tarefas(ScrollView):
     def __init__(self, tarefas, **kwargs):
         super().__init__(**kwargs)
         for tarefa in tarefas:
-            self.ids.box.add_widget(Label(text=tarefa, font_size= 40, size_hint_y=None, heigth = 200 ))
+            self.ids.box.add_widget(Label(text=tarefa, font_size= 40, size_hint_y=None, height = 200 ))
 
 
 class MyTarefa(App):
     def build(self):
-        return Tarefas(['Compras Supermercado', "Pegar filha escola", "estudar especialização"])
+        return Tarefas(['Compras Supermercado', "Pegar filha escola", "Estudar especialização", "Comprar carro", "Investir na bolsa"])
 
 MyTarefa().run()
 
